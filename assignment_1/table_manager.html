@@ -1,5 +1,6 @@
 <html>
 <head>
+	<h1 align= "center"> Kanika Taneja- Assignment 1 </h1>
 <!-- CSS -->
 <style type="text/css">
 	div {
@@ -7,7 +8,21 @@
 	}
 	table, th, td {
    border: 2px solid black;
-}
+
+
+	}
+
+	table.center {
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+	table {
+    border-collapse: collapse;
+	}
+
+
+
 </style>
 
 <!-- Data -->
@@ -211,34 +226,41 @@ var organizations = [
 	<div id="org_table" ></div>
 		<table id= "table">
 			<tr>
-				<td>"How many non-profit organizations are listed?"</td>
+				<td >Question:</td>
+				<td>Answer: </td>
+			</tr>
+
+			<tr>
+				<td>How many non-profit organizations are listed?</td>
 				<td id= "question_one"></td>
 			</tr>
 
 			<tr>
-				<td>"How many organizations are less than 10 years old?"</td>
+				<td>How many organizations are less than 10 years old?</td>
 				<td id= "question_two"></td>
 			</tr>
 
 			<tr>
-				<td>"How many of these organizations are North American?"</td>
+				<td>How many of these organizations are North American?</td>
 				<td id="question_three"></td>
 			</tr>
 
 			<tr>
-				<td>"How many organizations used the Transportation type of data?"</td>
+				<td>How many organizations used the Transportation type of data?</td>
 				<td id= "question_four"></td>
 			</tr>
 
 			<tr>
-				<td>"What is the average founding year?"</td>
-				<td id= "question_five"></td>
+				<td>What is the average founding year?</td>
+				<td > I found that the median year the organizations
+					were founded was 2011. This means 50% of the organizations were founded
+					before 2011 and 50% were founded after 2011. </td>
 			</tr>
 
 <script>
 // outputs the first item of the organizations array. Just for testing.
-console.log(organizations[0]);
-console.log("test");
+//console.log(organizations[0]);
+//console.log("test");
 
 
 
@@ -255,7 +277,7 @@ for (var i = 0; i < organizations.length; i++){
 document.getElementById("question_one").innerHTML = num_non_profits;
 
 // outputs the first item of the organizations array. Just for testing.
-console.log(num_non_profits);
+//console.log(num_non_profits);
 
 var less_than_ten = 0;
 for (var i = 0; i < organizations.length; i++){
@@ -285,22 +307,18 @@ document.getElementById("question_four").innerHTML = transport;
 
 
 var median = 0;
-for (var i = 0; i < organizations.length; i++){
-    organizations[i]["Founding Year"].sort();
+var list=[];
+	for (var i = 0; i < organizations.length; i++){ //copies the years into list array
+		list[i]= organizations[i]["Founding Year"];
 	}
-	if (organizations.length===0) { //since the length is even
-		var median= (organizations[organizations.length/2 -1] + organizations[organizations.length/2]) /2;
+	list.sort(); //sorts the years in List array numerically
+  for (var i=0; i<12; i++){
+//	console.log(list[i]);
+}
+//console.log("Length: "+ list.length);
+	if (list.length%2===0) { //since the length is even
+	median= (list[list.length/2 -1] + list[list.length/2]) /2;
 	}
-
-
-document.getElementById("question_five").innerHTML = median;
-
-
-
-
-
-//totalNonProfit= findNonProfit();
-//organizations.forEach(totalNonProfit);
 
 
 </script>
