@@ -252,7 +252,7 @@ var organizations = [
 
 			<tr>
 				<td>What is the average founding year?</td>
-				<td > I found that the median year the organizations
+				<td > I found that the median Year the organizations
 					were founded was 2011. This means 50% of the organizations were founded
 					before 2011 and 50% were founded after 2011. </td>
 			</tr>
@@ -268,43 +268,32 @@ var organizations = [
 // Your JavaScript code goes here
 
 var num_non_profits = 0;
+var less_than_ten = 0;
+var north_america = 0;
+var transport = 0;
 for (var i = 0; i < organizations.length; i++){
   //   console.log(organizations[i]["Organization Type"]);
     if (organizations[i]["Organization Type"] === "Nonprofit") {
         num_non_profits += 1;
     }
-}
-document.getElementById("question_one").innerHTML = num_non_profits;
-
-// outputs the first item of the organizations array. Just for testing.
-//console.log(num_non_profits);
-
-var less_than_ten = 0;
-for (var i = 0; i < organizations.length; i++){
-    if (organizations[i]["Founding Year"] > "2009") {
+		if (organizations[i]["Founding Year"] > "2009") {
         less_than_ten += 1;
     }
-}
-document.getElementById("question_two").innerHTML = less_than_ten;
-
-
-var north_america = 0;
-for (var i = 0; i < organizations.length; i++){
-    if (organizations[i]["Region"] === "North America") {
+		if (organizations[i]["Region"] === "North America") {
         north_america += 1;
     }
-}
-document.getElementById("question_three").innerHTML = north_america;
-
-
-var transport = 0;
-for (var i = 0; i < organizations.length; i++){
-    if (organizations[i]["Type of Data Used"] === "Transportation") {
+		if (organizations[i]["Type of Data Used"] === "Transportation") {
         transport += 1;
     }
 }
+document.getElementById("question_one").innerHTML = num_non_profits;
+document.getElementById("question_two").innerHTML = less_than_ten;
+document.getElementById("question_three").innerHTML = north_america;
 document.getElementById("question_four").innerHTML = transport;
 
+
+// outputs the first item of the organizations array. Just for testing.
+//console.log(num_non_profits);
 
 var median = 0;
 var list=[];
